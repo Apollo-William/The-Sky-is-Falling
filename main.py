@@ -4,7 +4,7 @@ from time import time, sleep
 
 # Register shapes in mass
 names = [
-  'NinjaFL1', 'NinjaFL2', 'NinjaFR1', 'NinjaFR2', 'assets/Apple', 'Bomb', 'FN Dojo'
+  'NinjaFL1', 'NinjaFL2', 'NinjaFR1', 'NinjaFR2', 'Apple', 'Bomb', 'FN Dojo'
 ]
 
 # sprites
@@ -13,10 +13,10 @@ leftFrame = 'NinjaFL1.gif'
 rightFrame = 'NinjaFR1.gif'
 
 for name in names:
-    ext = '.gif'
+    file = name + ".gif"
     if name[0:5] == "Ninja":
-      frameList.append(name + ext)
-    turtle.register_shape(name + ext)
+      frameList.append(file)
+    turtle.register_shape(file)
 
 # Set up the screen
 wn = turtle.Screen()
@@ -123,7 +123,7 @@ while True:
         nextframe += frameperiod
         wn.update()
 
-        if frame % 2 <= 30:
+        if frame == 15 or 30 or 45 or 60:
           leftFrame = frameList[1]
           rightFrame = frameList[3]
         else:

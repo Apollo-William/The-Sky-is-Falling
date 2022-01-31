@@ -3,21 +3,21 @@
     "main.py": [
       {
         "id": "4cd2d37e-b3bc-4526-8081-176c358a76df",
-        "line": 4,
-        "version": 2736,
-        "index": 57
+        "line": 3,
+        "version": 5070,
+        "index": 33
       },
       {
         "id": "843aa910-45f6-43bc-9fdd-1c3323af0213",
-        "line": 17,
-        "version": 2736,
-        "index": 316
+        "line": 3,
+        "version": 5070,
+        "index": 33
       },
       {
         "id": "e34a6916-1d49-42ed-81a8-c1a94494f288",
-        "line": 55,
-        "version": 2736,
-        "index": 964
+        "line": 3,
+        "version": 5070,
+        "index": 33
       }
     ]
   }
