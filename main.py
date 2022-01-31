@@ -29,6 +29,10 @@ wn.tracer(0)
 # Mainloop speed
 fps = 60
 
+# Player Slide
+slide = 1
+slideCap = 15
+
 # Score
 score = 0
 
@@ -95,16 +99,23 @@ def go_right():
     player.direction = 'right'
     player.shape(rightFrame)
 
+def stop():
+  player.direction = 'stop'
+
 # Keyboard bindings
 wn.listen()
 
 # Arrow keys
 wn.onkeypress(go_left, 'Left')
 wn.onkeypress(go_right, 'Right')
+wn.onkeyrelease(stop, 'Left')
+wn.onkeyrelease(stop, 'Right')
 
 # WASD keys
 wn.onkeypress(go_left, 'a')
 wn.onkeypress(go_right, 'd')
+wn.onkeyrelease(stop, 'a')
+wn.onkeyrelease(stop, 'd')
 
 # Main game loop
 while True:
@@ -122,20 +133,24 @@ while True:
 
         nextframe += frameperiod
         wn.update()
-
-        if frame == 15 or 30 or 45 or 60:
-          leftFrame = frameList[1]
-          rightFrame = frameList[3]
+        
+        if frame >= 30:
+          if player.direction == 'left':
+            leftFrame = frameList[1]
+          else:
+            rightFrame = frameList[3]
         else:
-          leftFrame = frameList[0]
-          rightFrame = frameList[2]
+          if player.direction == 'left':
+            leftFrame = frameList[0]
+          else:
+            rightFrame = frameList[2]
 
         if player.direction == 'left':
-            player.setx(player.xcor() - 3)
+            player.setx(player.xcor() - 6)
 
         if player.direction == 'right':
-            player.setx(player.xcor() + 3)
-
+            player.setx(player.xcor() + 6)
+          
         # Check for border collisions
         if player.xcor() < -390:
             player.setx(-390)
